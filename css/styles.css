@@ -1,0 +1,89 @@
+/* Estilos básicos y reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #ff77e9;
+    background-image: linear-gradient(315deg, #ff77e9 0%, #ff99ac 74%);
+    color: #ffffff;
+    line-height: 1.4;
+    padding: 20px;
+    font-size: 0.8rem; /* Tamaño de fuente ajustado */
+}
+header {
+    background-color: #000;
+    color: #00ffea;
+    padding: 20px 0;
+    text-align: center;
+}
+section {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 234, 0.7);
+    margin: 20px auto;
+    max-width: 1000px; /* Ancho máximo aumentado */
+    width: 90%; /* Asegura que ocupa el 90% del espacio disponible si es menor que 1000px */
+}
+h1 {
+    font-size: 1.2rem;
+}
+h2 {
+    font-size: 1rem;
+}
+h3, h4 {
+    font-size: 0.9rem;
+}
+ol {
+    margin-left: 20px;
+    list-style-type: none; /* Quitar la enumeración automática */
+}
+ol li {
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-left: 5px solid #ffcc00;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 2px solid #ffcc00;
+    padding: 8px;
+    text-align: left;
+    font-size: 0.8rem;
+}
+th {
+    background-color: rgba(0, 255, 234, 0.5);
+}
+input[type="text"], textarea {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 0.8rem;
+}
+.change-page-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff007f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+}
+.change-page-button:hover {
+    background-color: #ff4500;
+}

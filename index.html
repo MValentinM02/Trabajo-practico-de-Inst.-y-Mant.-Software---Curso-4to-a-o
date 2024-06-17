@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo Práctico N° 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css\styles.css">
+    <link rel="icon" type="image/png" href="img\logo-epet7.png">
+</head>
+<body>
+    <header>
+        <h1>EPET N° 7 "Ing. José Alsina Alcobert"</h1><img src="img\logo-epet7.png" alt="LOGO EPET 7" style="width: 150px; height: auto;">
+    </header>
+    <section>
+        <h2>Asignatura: Inst. y Mant. Software  - Curso: 4to año</h2>
+            <h3>Prof. Lourdes Barrientos</h3>
+            <h4>TRABAJO PRÁCTICO N° 2</h4>
+            <p>NOMBRE Y APELLIDO:<input type="text" placeholder="" style="width: 50%;"></p>
+            <ol>
+                <li>
+                    <p><strong>1.</strong> Escribe el nombre de las siguientes unidades en mayusculas en el campo que corresponda (Unidad Central de Proceso, Unidad Lógica y Aritmética (ALU) y Unidad de Control).</p>
+        
+                       <!-- Imágenes y cuadros de texto -->
+                       <div class="image-container">
+                        <div>
+                            <img src="img\1.jpg" alt="UNIDAD CENTRAL DE PROCESO" style="width: 150px; height: auto;">
+                            <div class="image-description">
+                                <textarea id="img1" placeholder="Escribe aquí tus observaciones..." style="width: 100%; height: 50px;"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="img\2.pngs" alt="UNIDAD DE CONTROL" style="width: 100px; height: auto;">
+                            <div class="image-description">
+                                <textarea id="img2" placeholder="Escribe aquí tus observaciones..." style="width: 100%; height: 50px;"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="img\3.png" alt="UNIDAD LOGICA Y ARITMETICA" style="width: 120px; height: auto;">
+                            <div class="image-description">
+                                <textarea id="img3" placeholder="Escribe aquí tus observaciones..." style="width: 100%; height: 50px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Función para verificar respuestas
+                        function verificarRespuestas() {
+                            var respuestasCorrectas = {
+                                "img1": "UNIDAD CENTRAL DE PROCESO",
+                                "img3": "UNIDAD DE CONTROL",
+                                "img2": "UNIDAD LOGICA Y ARITMETICA"
+                            };
+        
+                            // Iterar sobre cada textarea
+                            Object.keys(respuestasCorrectas).forEach(function(id) {
+                                var textarea = document.getElementById(id);
+                                var respuesta = textarea.value.trim().toUpperCase();
+                                var correcta = respuestasCorrectas[id].toUpperCase();
+        
+                                // Cambiar el color de fondo según la respuesta
+                                if (respuesta === correcta) {
+                                    textarea.style.backgroundColor = 'lightgreen';
+                                } else {
+                                    textarea.style.backgroundColor = 'lightcoral';
+                                }
+                            });
+                        }
+        
+                        // Verificar las respuestas cuando se modifique el texto
+                        document.querySelectorAll('.image-description textarea').forEach(function(textarea) {
+                            textarea.addEventListener('input', verificarRespuestas);
+                        });
+                    </script>
+                </li>
+                <!-- Integración del código de la segunda pregunta -->
+                <li>
+                    <p><strong>2.</strong> En base a Unidades de medida para el almacenamiento en la memoria, mueve la/s opción/es correctas: (muveve la respusta correcta al casillero correspondiente)</p>
+                    <div class="table-container">
+                        <!-- Primer contenedor de tabla -->
+                        <table>
+                            <tbody id="tabla-respuestas1">
+                                <tr>
+                                    <th>RESPUESTAS</th>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '1024 Gbytes')">1024 Gbytes</td>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '1024 Mbytes')">1024 Mbytes</td>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '1024 Kbytes')">1024 Kbytes</td>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '1024 Bytes')">1024 Bytes</td>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '8 Bites')">8 Bites</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <!-- Segunda Tabla -->
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Byte</th>
+                                    <th>Kilobyte</th>
+                                    <th>Megabyte</th>
+                                    <th>Gigabyte</th>
+                                    <th>Terabyte</th>
+                                </tr>
+                                <tr>
+                                    <td class="dropzone" id="byte" ondrop="drop(event, 'tabla-respuestas1')" ondragover="allowDrop(event)"></td>
+                                    <td class="dropzone" id="kilobyte" ondrop="drop(event, 'tabla-respuestas1')" ondragover="allowDrop(event)"></td>
+                                    <td class="dropzone" id="megabyte" ondrop="drop(event, 'tabla-respuestas1')" ondragover="allowDrop(event)"></td>
+                                    <td class="dropzone" id="gigabyte" ondrop="drop(event, 'tabla-respuestas1')" ondragover="allowDrop(event)"></td>
+                                    <td class="dropzone" id="terabyte" ondrop="drop(event, 'tabla-respuestas1')" ondragover="allowDrop(event)"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </li>
+                    <li>
+                        <p><strong>3.</strong> Describe 3(tres) diferencias de las memorias:</p>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>MEMORIA RAM</th>
+                                    <th>MEMORIA ROM</th>
+                                    <th>MEMORIA CACHE</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li>
+                        <p><strong>4.</strong> Define con tus palabras ¿qué es un sistema informático y cómo está integrado?</p>
+                        <textarea id="systemAnswer" placeholder="Escribe aquí tu definición..." style="width: 100%; height: 100px;"></textarea>
+                    </li>
+        
+                    <li>
+                        <p><strong>5.</strong> En base a los siguientes caracteres, mueva la/s opción/es correctas: (muveve la respusta correcta al casillero correspondiente)</p>
+        
+                    <!-- Segundo contenedor de tabla -->
+                    <div class="table-container">
+                        <table>
+                            <tbody id="tabla-respuestas2">
+                                <tr>
+                                    <th>RESPUESTAS</th>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '0100 0000')">0100 0000</td>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '0010 0000')">0010 0000</td>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '0110 1011')">0110 1011</td>
+                                </tr>
+                                <tr>
+                                    <td class="respuesta" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '0010 1011')">0010 1011</td>
+                                </tr>
+                            </tbody>
+                        </table>
+        
+                        <!-- Segunda Tabla -->
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>@</th>
+                                    <th>Espacio()</th>
+                                    <th>k</th>
+                                    <th>+</th>
+                                </tr>
+                                <tr>
+                                    <td class="dropzone" id="at" ondrop="drop(event, 'tabla-respuestas2')" ondragover="allowDrop(event)"></td>
+                                    <td class="dropzone" id="Espacio" ondrop="drop(event, 'tabla-respuestas2')" ondragover="allowDrop(event)"></td>
+                                    <td class="dropzone" id="k" ondrop="drop(event, 'tabla-respuestas2')" ondragover="allowDrop(event)"></td>
+                                    <td class="dropzone" id="suma" ondrop="drop(event, 'tabla-respuestas2')" ondragover="allowDrop(event)"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+        
+                    <script>
+                        function allowDrop(event) {
+                            event.preventDefault();
+                        }
+        
+                        function drop(event, tablaId) {
+                            event.preventDefault();
+                            var data = event.dataTransfer.getData("text/plain");
+                            event.target.innerText = data;
+        
+                            // Verificar si la respuesta es correcta
+                            var respuesta = event.target.innerText.toLowerCase().trim();
+                            var tablaRespuestas = document.getElementById(tablaId);
+                            if (tablaId === 'tabla-respuestas1') {
+                                if (respuesta === '1024 gbytes' && event.target.id === 'terabyte') {
+                                    event.target.classList.add('correcta');
+                                } else if (respuesta === '1024 mbytes' && event.target.id === 'gigabyte') {
+                                    event.target.classList.add('correcta');
+                                } else if (respuesta === '1024 kbytes' && event.target.id === 'megabyte') {
+                                    event.target.classList.add('correcta');
+                                } else if (respuesta === '1024 bytes' && event.target.id === 'kilobyte') {
+                                    event.target.classList.add('correcta');
+                                } else if (respuesta === '8 bites' && event.target.id === 'byte') {
+                                    event.target.classList.add('correcta');
+                                } else {
+                                    event.target.classList.add('incorrecta');
+                                }
+                            } else if (tablaId === 'tabla-respuestas2') {
+                                if (respuesta === '0100 0000' && event.target.id === 'at') {
+                                    event.target.classList.add('correcta');
+                                } else if (respuesta === '0010 0000' && event.target.id === 'Espacio') {
+                                    event.target.classList.add('correcta');
+                                } else if (respuesta === '0110 1011' && event.target.id === 'k') {
+                                    event.target.classList.add('correcta');
+                                } else if (respuesta === '0010 1011' && event.target.id === 'suma') {
+                                    event.target.classList.add('correcta');
+                                } else {
+                                    event.target.classList.add('incorrecta');
+                                }
+                            }
+        
+                            // Eliminar el bloque de respuesta de la tabla de respuestas
+                            var respuestas = tablaRespuestas.querySelectorAll('.respuesta');
+                            for (var i = 0; i < respuestas.length; i++) {
+                                if (respuestas[i].innerText === data) {
+                                    respuestas[i].parentElement.remove();
+                                    break;
+                                }
+                            }
+                        }
+                    </script>
+                    
+                </li>
+                <!-- Fin de la integración del código de la segunda pregunta -->
+                <!-- Preguntas adicionales... -->
+                <li>
+                    <p><strong>6.</strong> ¿Cuál es la diferencia entre el Hardware y el Software?</p>
+                    <textarea id="systemAnswer" placeholder="Escribe aquí tu definición..." style="width: 100%; height: 100px;"></textarea>
+                </li>
+                <li>
+                    <p><strong>7.</strong> Para desarrollar el trabajo o tomar decisiones eficientes en los diferentes ámbitos en donde una persona se encuentre, se necesita de un recurso vital. Selecciona la opción correcta:</p>
+                    <form>
+                        <input type="radio" id="info" name="vitalResource" value="Información">
+                        <label for="info" class="radio-label">Información</label><br>
+                        <input type="radio" id="computer" name="vitalResource" value="Computadora">
+                        <label for="computer" class="radio-label">Computadora</label><br>
+                        <input type="radio" id="ideas" name="vitalResource" value="Ideas">
+                        <label for="ideas" class="radio-label">Ideas</label><br>
+                        <input type="radio" id="internet" name="vitalResource" value="Internet">
+                        <label for="internet" class="radio-label">Internet</label>
+                    </form>
+        
+                    <script>
+                        function verificarRespuesta() {
+                            const radios = document.querySelectorAll('[name="vitalResource"]');
+                            const correctAnswer = 'Información';
+                    
+                            radios.forEach(radio => {
+                                let label = document.querySelector(`label[for='${radio.id}']`);
+                                if (radio.checked) {
+                                    if (radio.value === correctAnswer) {
+                                        label.style.backgroundColor = 'lightgreen';
+                                        alert("Correcto! La respuesta 'Información' es la correcta.");
+                                    } else {
+                                        label.style.backgroundColor = 'lightcoral';
+                                        alert("Incorrecto. Intenta nuevamente.");
+                                    }
+                                }
+                                radio.disabled = true; // Deshabilita el radio después de seleccionarlo.
+                            });
+                        }
+                    
+                        // Añadir listener a los radios
+                        document.querySelectorAll('[name="vitalResource"]').forEach(radio => {
+                            radio.addEventListener('change', verificarRespuesta);
+                        });
+                    </script>
+                    
+                </li>
+                
+                <li>
+                    <p><strong>8.</strong> En el siguiente cuadro describe 5 (cinco) partes de la Computadora y 5 (cinco) partes de un celular.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">COMPONENTES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>COMPUTADORA</th>
+                                <th>CELULAR</th>
+                            </tr>
+                            <tr>
+                                <td>Ejemplos:Monitores,LCD,LED,TACTILES,OLED</td>
+                                <td>Ejemplos:Pantallas,LCD,OLED,y AMOLED</td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+                <li>
+                    <p><strong>9.</strong> Describe una definición para los Periféricos de entrada-Periféricos de salida- Periféricos de entrada/salida.</p>
+                    
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>PERIFERICOS DE ENTRADA</th>
+                                <th>PERIFERICOS DE SALIDA</th>
+                                <th>PERIFERICOS DE ENTRADA/SALIDA</th>
+                            </tr>
+                            <tr>
+                                <td><textarea id="systemAnswer" placeholder="Escribe aquí tu definición..." style="width: 100%; height: 100px;"></textarea></td>
+                                <td><textarea id="systemAnswer" placeholder="Escribe aquí tu definición..." style="width: 100%; height: 100px;"></textarea></td>
+                                <td><textarea id="systemAnswer" placeholder="Escribe aquí tu definición..." style="width: 100%; height: 100px;"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+                </li>
+                <li><strong>10.</strong> Menciona 4 perifericos de (entrada, salida, entrada/salida)
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>PERIFERICOS DE ENTRADA</th>
+                                <th>PERIFERICOS DE SALIDA</th>
+                                <th>PERIFERICOS DE ENTRADA/SALIDA</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                                <td><input type="text" placeholder="" style="width: 100%;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+                </li>
+            </ol>
+    </section>
+    <button class="change-page-button" onclick="window.location.href='page2.html';">
+        Siguiente Página
+    </button>
+</body>
+</html>
